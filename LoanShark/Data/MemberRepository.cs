@@ -45,7 +45,6 @@ namespace LoanShark.Data
             var member = new MemberEditViewModel()
             {
                 MemberId = Guid.NewGuid().ToString()
-
             };
             return member;
         }
