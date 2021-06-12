@@ -10,6 +10,7 @@ namespace LoanShark.ViewModel
     public class MemberDisplayViewModel
     {
         [Required]
+        [DisplayName("Member ID")]
         public Guid MemberId { get; set; }
         [Required]
         [DisplayName("First Name")]
