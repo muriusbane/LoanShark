@@ -1,4 +1,4 @@
-using LoanShark.Models;
+﻿using LoanShark.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace LoanShark.Data
 {
-    public class AppDbContext
+    public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+
+        }
+        public DbSet<Member> Members { get; set;}
     }
 }
