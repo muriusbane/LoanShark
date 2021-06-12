@@ -9,58 +9,49 @@
 
 @using (Html.BeginForm())
 {
-<div class="border p-3">
-    <div class="form-group row">
-        <div class="col-4">
+<div class="form-group">
+    <h4>Make sure to input the correct member details.</h4>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
             @Html.LabelFor(model => model.MemberId, htmlAttributes: new { @class = "control-label" })
-        </div>
-        <div class="col-8">
             @Html.EditorFor(model => model.MemberId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
             @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-4">
+    <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
-        </div>
-        <div class="col-8">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-4">
+    <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
             @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label" })
-        </div>
-        <div class="col-8">
             @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
             @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-4">
+    <div class="form-row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
-        </div>
-        <div class="col-8">
             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
         </div>
     </div>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group row">
-            <div class="col-8 offset-4 row">
-                <div class="col">
-                    <button type="submit" class="btn btn-primary w-100">
-                        <i class="fa fa-save"></i>&nbsp;Save
-                    </button>
-                </div>
-                <div class="col">
-                    <a asp-action="Index" class="btn btn-danger w-100"><i class="fa fa-undo"></i>&nbsp;Back</a>
-                </div>
-            </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary w-60">
+                <i class="fa fa-save"></i>&nbsp;Save
+            </button>
+            <a asp-action="Index" class="btn btn-danger w-60"><i class="fa fa-undo"></i>&nbsp;Back</a>
         </div>
     </div>
+</div>
 }
 
 @section Scripts {
