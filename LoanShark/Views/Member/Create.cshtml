@@ -1,7 +1,70 @@
-﻿
+﻿@model LoanShark.ViewModel.MemberEditViewModel
+
 @{
-    ViewData["Title"] = "Create";
+    ViewBag.Title = "Member";
 }
 
-<h1>Create</h1>
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-primary pl-3">Add Member</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
 
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="FirstName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="MiddleName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="MiddleName" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="LastName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fa fa-save"></i>&nbsp;Create
+                            </button>
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-100"> <i class="fa fa-undo"></i>&nbsp;Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
