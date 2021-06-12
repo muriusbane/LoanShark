@@ -23,5 +23,29 @@ namespace LoanShark.Controllers
             var memberList = repo.GetMembers();
             return View(memberList);
         }
+
+        public IActionResult Create()
+        {
+            var repo = new MemberRepository(_db);
+            var member = repo.CreateMember();
+            return View(member);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(MemberEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var repo = new MemberRepository(_db);
+                bool saved = repo.SaveMember(model);
+                if (saved)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(model);
+
+        }
     }
 }
