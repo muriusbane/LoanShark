@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace LoanShark.ViewModel
 {
-    public class MemberDisplayModel
+    public class MemberDisplayViewModel
     {
         [Required]
-        public string MemberId { get; set; }
+        public Guid MemberId { get; set; }
         [Required]
         [DisplayName("First Name")]
         public string FirstName { get; set; }
