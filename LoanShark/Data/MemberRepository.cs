@@ -40,5 +40,14 @@ namespace LoanShark.Data
             }
             return null;
         }
+        public MemberEditViewModel CreateMember()
+        {
+            var member = new MemberEditViewModel()
+            {
+                MemberId = Guid.NewGuid().ToString()
+
+            };
+            return member;
+        }
     }
 }
