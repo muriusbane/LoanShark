@@ -49,5 +49,25 @@ namespace LoanShark.Data
             };
             return member;
         }
+        public bool SaveMember(MemberEditViewModel memberEdit)
+        {
+            if (memberEdit != null)
+            {
+                if (Guid.TryParse(memberEdit.MemberId, out Guid newGuid))
+                {
+                    var member = new Member()
+                    {
+                        MemberId = newGuid,
+                        FirstName = memberEdit.FirstName,
+                        MiddleName = memberEdit.MiddleName,
+                        LastName = memberEdit.LastName,
+                    };
+                    _db.Members.Add(member);
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
