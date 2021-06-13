@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LoanShark.ViewModel;
+using AutoMapper;
+using LoanShark.Models;
 
 namespace LoanShark.Controllers
 {
@@ -62,7 +64,20 @@ namespace LoanShark.Controllers
                 MiddleName = member.MiddleName,
                 LastName = member.LastName
             };
+
+            if (memberEdit == null)
+            {
+                return NotFound();
+            }
+
             return View(memberEdit);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(MemberEditViewModel model)
+        {
+
         }
     }
 }
