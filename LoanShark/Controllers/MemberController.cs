@@ -47,5 +47,22 @@ namespace LoanShark.Controllers
             return View(model);
 
         }
+
+        public IActionResult Edit(Guid id)
+        {
+            var member = _db.Members.SingleOrDefault(m => m.MemberId == id);
+            
+            if (member == null)
+            {
+                return NotFound();
+            }
+            var memberEdit = new MemberEditViewModel
+            {
+                FirstName = member.FirstName,
+                MiddleName = member.MiddleName,
+                LastName = member.LastName
+            };
+            return View(memberEdit);
+        }
     }
 }
